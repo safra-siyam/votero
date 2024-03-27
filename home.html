@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votero</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-blue-500">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a class="text-white text-lg font-bold" href="#">Votero</a>
+            <div class="hidden lg:flex items-center space-x-4">
+                <ul class="flex flex-col lg:flex-row lg:ml-auto space-y-2 lg:space-y-0 lg:space-x-4">
+                    <li><a href="#" class="text-white">HOME</a></li>
+                    <li><a href="#" class="text-white">ABOUT US</a></li>
+                    <li><a href="#" class="text-white">ELECTION</a></li>
+                    <li><a href="#" class="text-white">VOTING CARDS</a></li>
+                </ul>
+                <form action="{{ route('signup') }}" method="POST" class="hidden lg:flex">
+                    <button class="bg-white text-blue-500 px-4 py-2 rounded-lg mr-2" type="submit">Sign Up</button>
+                </form>
+                <form action="{{ route('login') }}" method="POST" class="hidden lg:flex">
+                    <button class="bg-white text-blue-500 px-4 py-2 rounded-lg" type="submit">Login</button>
+                </form>
+            </div>
+            <button class="block lg:hidden text-white focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="slider_section">
+        <div id="customCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container mx-auto py-20 lg:py-32">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h1 class="text-3xl lg:text-5xl font-bold text-blue-500 mb-4">Join Us Now!</h1>
+                                <p class="text-lg lg:text-xl text-gray-800 mb-6">Be a part of the future! Register now for the upcoming elections in Sri Lanka and experience the convenience of our leading online election registration platform. Don't miss your chance to make your voice heard!</p>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">Contact Us</a>
+                                    <a href="#" class="bg-white text-blue-500 px-6 py-3 rounded-lg font-semibold border border-blue-500 hover:bg-blue-100 transition duration-300">About Us</a>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <img src="vote1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-gray-100 py-20">
+      <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div class="text-center lg:text-left">
+                  <img src="vote2.jpg" alt="About Us Image" class="rounded-lg shadow-lg">
+              </div>
+              <div>
+                  <div class="heading_container mb-6">
+                      <h2 class="text-3xl lg:text-4xl font-bold text-blue-500 mb-4">About Votero</h2>
+                  </div>
+                  <p class="text-lg lg:text-xl text-gray-800 mb-6">At Votero, we are dedicated to revolutionizing the democratic process in Sri Lanka. Our mission is to provide a seamless and transparent platform for citizens to participate in elections and make their voices heard.</p>
+                  <p class="text-lg lg:text-xl text-gray-800 mb-6">We believe in empowering every individual to exercise their right to vote conveniently and securely. With cutting-edge technology and a commitment to integrity, we aim to build trust and confidence in the electoral system.</p>
+                  <a href="#" class="text-blue-500 font-semibold hover:underline">Learn More</a>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="#" class="text-blue-500 mr-4">
+                        <i class="fas fa-phone"></i>
+                        <span class="ml-2">Call: +01 123455678990</span>
+                    </a>
+                    <a href="#" class="text-blue-500 mr-4">
+                        <i class="fas fa-envelope"></i>
+                        <span class="ml-2">Email: votero@gmail.com</span>
+                    </a>
+                    <a href="#" class="text-blue-500">
+                        <i class="fas fa-map-marker"></i>
+                        <span class="ml-2">About Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            &copy; 2024 Votero - All Rights Reserved
+        </div>
+    </footer>
+
+</body>
+
+</html>
