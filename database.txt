@@ -1,3 +1,5 @@
+Create database votero
+
 CREATE TABLE VillageOfficer
  (
  VillageOfficer_ID varchar(5) not null primary key,
@@ -14,7 +16,7 @@ CREATE TABLE VillageOfficer
  (
  Voter_NIC varchar(12) not null primary key,
  Voter_Name varchar(50) not null,
- Email varchar(50) unique,
+ Email varchar(50) unique not null,
  Mobile_Number int not null,
  Home_ID varchar(8) not null,
  Voter_Type varchar(20) not null,
@@ -32,7 +34,7 @@ Election_Date date not null
 CREATE TABLE Admin
 (
 Admin_ID varchar(5) not null primary key,
-Admin_Username varchar(15) not null,
+Admin_Username varchar(15) unique not null,
 Admin_Password varchar(8) not null
 );
 
@@ -44,7 +46,7 @@ Gender varchar(8) not null,
 Date_Of_Birth date not null,
 GramaNiladari_Division varchar(30) not null,
 Registered_Date date not null,
-Voter_NIC varchar(12) not null,
+Voter_NIC varchar(12) unique not null,
 Election_ID varchar(5) not null,
 foreign key(Voter_NIC) references Voter(Voter_NIC),
 foreign key(Election_ID) references Election(Election_ID),
