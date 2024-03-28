@@ -84,6 +84,12 @@ if(isset($_POST["txtUsername"]) && isset($_POST["txtPassword"])) {
       <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email address:</label>
       <input id="email" name="email" type="email" placeholder="name@example.com" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
     </div>
+
+    <div class="mb-4">
+      <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+      <input id="username" name="username" type="text" placeholder="Enter your username" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+
     <div class="mb-3">
       <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type:</label>
       <select name="type" id="type" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -92,11 +98,6 @@ if(isset($_POST["txtUsername"]) && isset($_POST["txtPassword"])) {
         <option value="village_officer">Village Officer</option>
         <option value="user">Voter</option>
       </select>
-    </div>
-
-    <div class="mb-4">
-      <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
-      <input id="username" name="username" type="text" placeholder="Enter your username" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
     </div>
     <div class="mb-6">
       <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
