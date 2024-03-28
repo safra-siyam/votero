@@ -1,34 +1,78 @@
-<!-- <?php
-if(isset($_POST["txtUsername"]) && isset($_POST["txtPassword"])) {
-    $un = $_POST["txtUsername"];
-    $pw = $_POST["txtPassword"];
+<?php
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$database = "votero"; 
 
-    // Connect to the database (replace 'localhost:3306', 'silva', '2002', and 'institute_db' with your actual database credentials)
-    $connection = mysqli_connect("localhost:3306", "silva", "2002", "institute_db");
+$conn = new mysqli($servername, $username, $password, $database);
 
-    // Check if connection was successful
-    if (!$connection) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // Perform SQL operations
-    $sql = "SELECT Username, Password FROM Voter WHERE Username='$un' AND Password='$pw'"; 
-    $result = mysqli_query($connection, $sql);
-
-    // Check if a row is returned
-    if(mysqli_num_rows($result) > 0) {
-        // Redirect to voting page upon successful login
-        header("Location: voting_page.php");
-        exit(); // Terminate script execution after redirection
-    } else {
-        echo '<script>alert("Invalid username or password")</script>';
-    }
-
-    // Close the database connection
-    mysqli_close($connection);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-?> -->
 
+// Function to sanitize input data
+function sanitize_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function validate_email($email) {
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate and sanitize form data
+    $nic = sanitize_input($_POST["nic"]);
+    $name = sanitize_input($_POST["name"]);
+    $email = sanitize_input($_POST["email"]);
+    $username = sanitize_input($_POST["username"]);
+    $type = sanitize_input($_POST["type"]);
+    $password = sanitize_input($_POST["password"]);
+    $repassword = sanitize_input($_POST["repassword"]);
+    $phone = sanitize_input($_POST["phone"]);
+
+    // Check if any field is empty
+    if (empty($nic) || empty($name) || empty($email) || empty($username) || empty($type) || empty($password) || empty($repassword) || empty($phone)) {
+        echo "All fields are required";
+        exit;
+    }
+
+    if (!preg_match("/^[0-9]{10}$/", $phone)) {
+      echo "Invalid phone number format. It should be 10 digits long.";
+      exit;
+  }
+    if (!validate_email($email)) {
+        echo "Invalid email format";
+        exit;
+    }
+
+    if ($password !== $repassword) {
+        echo "Passwords do not match";
+        exit;
+    }
+
+     if ($type == "village_officer") {
+      // Insert into VillageOfficer table
+      $sql = "INSERT INTO VillageOfficer (VillageOfficer_ID, VillageOfficer_Name, Email, VillageOfficer_Username, VillageOfficer_Password, Admin_ID, Phone)
+              VALUES ('$nic', '$name', '$email', '$username', '$password', 'admin_id_value', '$phone')"; // Replace 'admin_id_value' with the actual admin ID
+  } elseif ($type == "voter") {
+      // Insert into Voter table
+      $sql = "INSERT INTO Voter (Voter_NIC, Voter_Name, Email, Voter_Username, Voter_Password, Voter_Type, Mobile_Number)
+              VALUES ('$nic', '$name', '$email', '$username', '$password', 'voter', '$phone')";
+  }
+
+    // Execute the SQL query
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+$conn->close();
+?>
 
 
 <!DOCTYPE html>
@@ -36,15 +80,19 @@ if(isset($_POST["txtUsername"]) && isset($_POST["txtPassword"])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration for Votero</title>
+  <title>Sign up for Votero</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    body {
+      overflow-y: auto; 
+    }
+
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     .login-form {
@@ -71,14 +119,14 @@ if(isset($_POST["txtUsername"]) && isset($_POST["txtPassword"])) {
 
 <div class="container mx-auto">
   <form class="login-form bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" action="#">
-    <h2 class="text-3xl text-gray-900 font-bold mb-6">Registration for Votero</h2>
+    <h2 class="text-3xl text-gray-900 font-bold mb-6">Sign up for Votero</h2>
     <div class="mb-4">
       <label for="nic" class="block text-gray-700 text-sm font-bold mb-2">NIC Number:</label>
       <input id="nic" name="nic" type="text" placeholder="Enter your NIC number" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
     </div>
     <div class="mb-4">
       <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-      <input id="name" name="name" type="text" placeholder="Enter your name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      <input id="name" name="name" type="text" placeholder="Enter your name according to NIC" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
     </div>
     <div class="mb-4">
       <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email address:</label>
@@ -90,13 +138,19 @@ if(isset($_POST["txtUsername"]) && isset($_POST["txtPassword"])) {
       <input id="username" name="username" type="text" placeholder="Enter your username" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
     </div>
 
+    <div class="mb-4">
+      <label for="contactnumber" class="block text-gray-700 text-sm font-bold mb-2">Contact Number:</label>
+      <input id="contactnumber" name="phone" type="text" placeholder="0778094534" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+
+    </div>
+
     <div class="mb-3">
       <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type:</label>
       <select name="type" id="type" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         <option value="" disabled selected>Select type</option>
         <option value="admin">Admin</option>
         <option value="village_officer">Village Officer</option>
-        <option value="user">Voter</option>
+        <option value="voter">Voter</option>
       </select>
     </div>
     <div class="mb-6">
