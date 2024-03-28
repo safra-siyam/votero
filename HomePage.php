@@ -29,22 +29,6 @@
             margin-right: auto;
         }
 
-        .navbar {
-            background-color: #2563eb;
-            color: #fff;
-        }
-
-        .navbar h1 {
-            font-size: 1.8rem;
-        }
-
-        .hero {
-            background-color: #2563eb;
-            color: #fff;
-            padding-top: 8rem;
-            padding-bottom: 8rem;
-        }
-
         .main-content {
             padding-top: 4rem;
             padding-bottom: 4rem;
@@ -56,38 +40,12 @@
             border-radius: 0.5rem;
             padding: 2rem;
         }
-
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="font-bold text-xl">Votero</h1>
-            <ul class="flex space-x-4">
-                <li>
-                    <a href="#" class="hover:underline">
-                        <i class="fas fa-user-circle mr-2 text-lg"></i>
-                        My Account
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero text-center">
-        <h2 class="text-4xl font-bold mb-4">Welcome to Votero</h2>
-        <p class="text-lg">Empowering Sri Lankans to register and participate in elections.</p>
-    </div>
+    <?php include 'hero_section.php'; ?>
 
     <!-- Main Content Section -->
     <div class="main-content">
@@ -117,7 +75,7 @@
                     <i class="fas fa-vote-yea text-blue-500 text-3xl"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-2">Downlaod Voting Cards</h3>
+                    <h3 class="text-xl font-semibold mb-2">Download Voting Cards</h3>
                     <p class="mb-4">Explore voting options in Sri Lanka.</p>
                     <a href="#" class="text-blue-500 hover:underline">Download  &rarr;</a>
                 </div>
@@ -134,13 +92,7 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer text-center">
-        <div class="container mx-auto">
-            <p>&copy; 2024 Votero. All rights reserved.</p>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
 </body>
 
