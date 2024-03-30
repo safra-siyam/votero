@@ -1,3 +1,57 @@
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    
+    $id = isset($_POST['txtId']) ? $_POST['txtId'] : '';
+    $name = isset($_POST['txtName']) ? $_POST['txtName'] : '';
+    $date=isset($_POST['txtDate']) ?$_POST['txtDate'] : '';
+    $division = isset($_POST['txtDivision']) ? $_POST['txtDivision'] : '';
+    
+
+
+
+    
+    $servername = "localhost:3308";
+    $dbUsername = "root"; 
+    $dbPassword = "  ";
+    $dbname = "votero_db";
+
+    $connection = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
+
+    
+    if($connection->connect_error) 
+    {
+      die("Connection failed: " . $connection->connect_error);
+    }
+
+    
+    $stmt = $connection->prepare("INSERT INTO election (Election_ID, Election_Name, Election_Date) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $id, $name, $date);
+
+    
+    if($stmt->execute())
+    {
+       echo '<script>alert("Successfully Registered")</script>';
+       header("Location: villageOfficerDashboard.php");
+       exit();
+    } 
+    else  
+    {
+       echo "Error: " . $stmt->error;
+    }
+
+    
+    $stmt->close();
+    $connection->close();
+}
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
