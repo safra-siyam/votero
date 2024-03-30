@@ -4,6 +4,8 @@ $username = "root";
 $password = "";
 $database = "votero";
 
+$error = "";
+
 try {
     $conn = new mysqli($servername, $username, $password, $database);
 
@@ -42,10 +44,12 @@ try {
                     if ($stmt) {
                         $stmt->bind_param("ssssss", $voter_nic, $voter_name, $voter_email, $voter_username, $voter_password, $voter_phone);
                         if ($stmt->execute()) {
-                            echo "New record created successfully";
-                        } else {
-                            throw new Exception("Error: " . $sql . "<br>" . $conn->error);
-                        }
+                          echo "New record created successfully";
+                          echo '<script>window.location.href = "login.php";</script>'; // Redirect to login page
+                      } else {
+                          throw new Exception("Error: " . $sql . "<br>" . $conn->error);
+                      }
+                      
                         $stmt->close();
                     } else {
                         throw new Exception("Error: Unable to prepare statement");
@@ -70,10 +74,12 @@ try {
                     if ($stmt) {
                         $stmt->bind_param("ssssssssss", $VOnic, $VOname, $VOemail, $VOdivision, $VOusername, $VOpassword, $VOdob, $VOgender, $VOphone, $VOaddress);
                         if ($stmt->execute()) {
-                            echo "New record created successfully";
-                        } else {
-                            throw new Exception("Error: " . $sql . "<br>" . $conn->error);
-                        }
+                          echo "New record created successfully";
+                          echo '<script>window.location.href = "login.php";</script>'; // Redirect to login page
+                      } else {
+                          throw new Exception("Error: " . $sql . "<br>" . $conn->error);
+                      }
+                      
                         $stmt->close();
                     } else {
                         throw new Exception("Error: Unable to prepare statement");
@@ -86,11 +92,11 @@ try {
     }
     
 } catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
+  echo "error|" . $e->getMessage(); // Return error message
 }
 
 if (isset($conn)) {
-    $conn->close();
+  $conn->close();
 }
 ?>
 
@@ -275,22 +281,22 @@ if (isset($conn)) {
 
 <script>
   function toggleForm() {
-    var type = document.getElementById("type").value;
-    var voterForm = document.getElementById("voterForm");
-    var villageOfficerForm = document.getElementById("villageOfficerForm");
+  var type = document.getElementById("type").value;
+  var voterForm = document.getElementById("voterForm");
+  var villageOfficerForm = document.getElementById("villageOfficerForm");
 
-    if (type === "voter") {
-      voterForm.classList.add("visible-form"); // Display voter form
-      villageOfficerForm.classList.remove("visible-form"); // Hide village officer form
-    } else if (type === "village_officer") {
-      voterForm.classList.remove("visible-form"); // Hide voter form
-      villageOfficerForm.classList.add("visible-form"); // Display village officer form
-    } else {
-      // If admin or no option is selected, hide both forms
-      voterForm.classList.remove("visible-form");
-      villageOfficerForm.classList.remove("visible-form");
-    }
+  if (type === "voter") {
+    voterForm.classList.add("visible-form"); // Display voter form
+    villageOfficerForm.classList.remove("visible-form"); // Hide village officer form
+  } else if (type === "village_officer") {
+    voterForm.classList.remove("visible-form"); // Hide voter form
+    villageOfficerForm.classList.add("visible-form"); // Display village officer form
+  } else {
+    // If admin or no option is selected, hide both forms
+    voterForm.classList.remove("visible-form");
+    villageOfficerForm.classList.remove("visible-form");
   }
+}
 </script>
 
 </body>
