@@ -79,13 +79,14 @@
 
        <table>
           <tr>
-            <th>Home ID</th>
             <th>Cheif Occupant Name</th>
-            <th>Date</th>
-            <th>Grama Niladari Division</th>
+            <th>Eligibility Status</th>
             <th>Gender</th>
             <th>Date of Birth</th>
-
+            <th>Grama Niladari Division</th>
+            <th>Registered_Date</th>
+            <th>Voter_NIC</th>
+            <th>Election_ID</th>
           </tr>
        
         </table>
