@@ -72,7 +72,7 @@
             </ul>
         </div>
     </nav><br>
-<!-- uikjuhhhhh -->
+
     <main class="container mx-auto px-4 py-8">
 
        <h2 class="text-2xl font-bold mb-4">Upcoming Elections</h2>
@@ -84,6 +84,48 @@
             <th>Election Date</th>
             <th></th>
           </tr>
+
+        <?php
+
+          $servername = "localhost:3308";
+          $dbUsername = "root";
+          $dbPassword = "   ";
+          $dbname = "votero_db";
+
+
+          $connection = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
+
+
+          if($connection->connect_error) {
+             die("Connection failed: " . $connection->connect_error);
+          }
+
+
+          $sql = "SELECT Election_ID,Election_Name,Election_Date FROM election";
+          $result = $connection->query($sql);
+
+
+          if ($result->num_rows > 0) 
+          {
+               while($row = $result->fetch_assoc()) 
+               {
+                  echo "<tr>";
+                  echo "<td>" . $row["Election_ID"] . "</td>";
+                  echo "<td>" . $row["Election_Name"] . "</td>";
+                  echo "<td>" . $row["Election_Date"] . "</td>";
+                  echo "</tr>";
+               }
+          } 
+          else 
+          {
+             echo "<tr><td colspan='3'>No data found</td></tr>";
+          }
+
+
+          $connection->close();
+        ?>
+
+        
        
         </table>
     </main>
