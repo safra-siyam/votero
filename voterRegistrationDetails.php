@@ -88,6 +88,52 @@
             <th>Voter_NIC</th>
             <th>Election_ID</th>
           </tr>
+
+          <?php
+
+          $servername = "localhost:3308";
+          $dbUsername = "root";
+          $dbPassword = "";
+          $dbname = "votero_db";
+
+
+          $connection = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
+
+
+          if($connection->connect_error) {
+             die("Connection failed: " . $connection->connect_error);
+          }
+
+
+          $sql = "SELECT CheifOccupant_Name,EligibilityStatus,Gender,Date_Of_Birth,GramaNiladari_Division,Registered_Date,Voter_NIC,Election_ID FROM register";
+          $result = $connection->query($sql);
+
+
+          if ($result->num_rows > 0) 
+          {
+            while($row = $result->fetch_assoc()) 
+            {
+               echo "<tr>";
+               echo "<td>" . $row["CheifOccupant_Name"] . "</td>";
+               echo "<td>" . $row["EligibilityStatus"] . "</td>";
+               echo "<td>" . $row["Gender"] . "</td>";
+               echo "<td>" . $row["Date_Of_Birth"] . "</td>";
+               echo "<td>" . $row["GramaNiladari_Division"] . "</td>";
+               echo "<td>" . $row["Registered_Date"] . "</td>";
+               echo "<td>" . $row["Voter_NIC"] . "</td>";
+               echo "<td>" . $row["Election_ID"] . "</td>";
+               echo "</tr>";
+            }
+          } 
+          else 
+          {
+              echo "<tr><td colspan='3'>No data found</td></tr>";
+          }
+
+
+          $connection->close();
+          ?>
+
        
         </table>
     </main>
