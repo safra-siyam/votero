@@ -1,3 +1,61 @@
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    
+    $id = isset($_POST['txtId']) ? $_POST['txtId'] : '';
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $email = isset($_POST['txtEmail']) ? $_POST['txtEmail'] : '';
+    $division = isset($_POST['txtDivision']) ? $_POST['txtDivision'] : '';
+    $username = isset($_POST['txtUsername']) ? $_POST['txtUsername'] : '';
+    $password = isset($_POST['txtPassword']) ? $_POST['txtPassword'] : '';
+    $adminId=1;
+
+
+
+
+    
+    $servername = "localhost:3308";
+    $dbUsername = "root"; 
+    $dbPassword = "      ";
+    $dbname = "votero_db";
+
+    $connection = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
+
+    
+    if($connection->connect_error) 
+    {
+      die("Connection failed: " . $connection->connect_error);
+    }
+
+    
+    $stmt = $connection->prepare("INSERT INTO villageofficer (VillageOfficer_ID, VillageOfficer_Name, Email, Division, VillageOfficer_Username, VillageOfficer_Password, Admin_ID) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssi", $id, $name, $email, $division, $username, $password, $adminId);
+
+    
+    if($stmt->execute())
+    {
+       echo '<script>alert("Successfully Registered")</script>';
+       header("Location: villageOfficerDashboard.php");
+       exit();
+    } 
+    else  
+    {
+       echo "Error: " . $stmt->error;
+    }
+
+    
+    $stmt->close();
+    $connection->close();
+}
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
