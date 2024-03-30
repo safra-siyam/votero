@@ -18,7 +18,6 @@ CREATE TABLE VillageOfficer
  Voter_Name varchar(50) not null,
  Email varchar(50) unique not null,
  Mobile_Number int not null,
- Home_ID varchar(8) not null,
  Voter_Type varchar(20) not null,
  Voter_Username varchar(15) not null unique,
  Voter_Password varchar(8) not null
