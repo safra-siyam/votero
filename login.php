@@ -1,3 +1,79 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "votero";
+
+$error = "";
+
+try {
+    $conn = new mysqli($servername, $username, $password, $database);
+
+    if ($conn->connect_error) {
+        throw new Exception("Connection failed: " . $conn->connect_error);
+    }
+
+    // Function to sanitize input data
+    function sanitize_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if(isset($_POST["nic"], $_POST["type"], $_POST["username"], $_POST["password"])) {
+            $nic = sanitize_input($_POST["nic"]);
+            $type = sanitize_input($_POST["type"]);
+            $username = sanitize_input($_POST["username"]); 
+            $password = sanitize_input($_POST["password"]); 
+
+            // Prepare SQL statement based on user type
+            if ($type == "voter") {
+                $sql = "SELECT * FROM Voter WHERE Voter_NIC = ? AND Voter_Username = ? AND Voter_Password = ?";
+            } elseif ($type == "village_officer") {
+                $sql = "SELECT * FROM VillageOfficer WHERE villageOfficer_NIC = ? AND VillageOfficer_Username = ? AND VillageOfficer_Password = ?";
+            }
+
+            $stmt = $conn->prepare($sql);
+            if ($stmt) {
+                $stmt->bind_param("sss", $nic, $username, $password);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                
+                if ($result->num_rows == 1) {
+                    // User found, you can proceed with login
+                    // For example, you can set session variables to keep the user logged in
+                    session_start();
+                    $_SESSION['user'] = $result->fetch_assoc();
+
+                    // Redirect to a dashboard or profile page
+                    header("Location: HomePage.php");
+                    exit();
+                } else {
+                    // User not found, display an error message or redirect back to the login page
+                    echo "Invalid credentials. Please try again.";
+                }
+                
+                $stmt->close();
+            } else {
+                throw new Exception("Error: Unable to prepare statement");
+            }
+        } else {
+            echo "Required fields missing.";
+        }
+    }
+    
+} catch (Exception $e) {
+    echo "error|" . $e->getMessage(); // Return error message
+}
+
+if (isset($conn)) {
+    $conn->close();
+}
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,10 +127,10 @@
     <div class="mb-3">
       <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type:</label>
       <select name="type" id="type" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-        <option value="" disabled selected>Select type</option>
+        <option value="" disabled selected>Select User type</option>
         <option value="admin">Admin</option>
         <option value="village_officer">Village Officer</option>
-        <option value="user">User</option>
+        <option value="voter">Voter</option>
       </select>
     </div>
     <div class="mb-4">

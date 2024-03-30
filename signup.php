@@ -215,8 +215,6 @@ if (isset($conn)) {
   </form>
 
   <form class="login-form bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="villageOfficerForm" method="post" action="#">
-    <!-- Village Officer form elements -->
-    <!-- This form will be displayed when "Village Officer" is selected -->
     <h2 class="text-3xl text-gray-900 font-bold mb-6">Sign up for Village Officer</h2>
     <div class="mb-4">
       <label for="nic" class="block text-gray-700 text-sm font-bold mb-2">NIC Number:</label>
@@ -260,12 +258,13 @@ if (isset($conn)) {
       <input id="contactnumber" name="contactnumber" type="text" placeholder="Enter contact number" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
     </div>
 
-    <select name="type" id="type" required onchange="toggleForm()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-  <option value="" disabled selected>Select type</option>
-  <!-- <option value="admin">Admin</option> -->
-  <option value="village_officer">Village Officer</option>
-  <!-- <option value="voter">Voter</option> -->
-</select>
+    <div class="mb-3">
+  <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type:</label>
+  <select name="type" id="type" required onchange="toggleForm()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    <option value="" disabled selected>Select type</option>
+    <option value="village_officer">Village Officer</option>
+  </select>
+</div>
 
     <div class="mb-4">
       <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Address:</label>
@@ -286,19 +285,17 @@ if (isset($conn)) {
   var villageOfficerForm = document.getElementById("villageOfficerForm");
 
   if (type === "voter") {
-    voterForm.classList.add("visible-form"); // Display voter form
-    villageOfficerForm.classList.remove("visible-form"); // Hide village officer form
+    voterForm.classList.add("visible-form"); 
+    villageOfficerForm.classList.remove("visible-form"); 
   } else if (type === "village_officer") {
-    voterForm.classList.remove("visible-form"); // Hide voter form
-    villageOfficerForm.classList.add("visible-form"); // Display village officer form
+    voterForm.classList.remove("visible-form"); 
+    villageOfficerForm.classList.add("visible-form"); 
   } else {
-    // If admin or no option is selected, hide both forms
     voterForm.classList.remove("visible-form");
     villageOfficerForm.classList.remove("visible-form");
   }
 }
 </script>
-
 </body>
 </html>
 
