@@ -57,6 +57,14 @@
                         <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter the NIC Number">
                     </td>
                 </tr>
+                <tr>
+                    <td class="pb-2 pr-2">
+                        <label for="txtdob" class="block text-gray-700 text-sm font-bold">Email:</label>
+                    </td>
+                    <td class="pb-2">
+                        <input type="Date" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="jhonabc13@gmail.com">
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="pb-2 pr-2">
@@ -91,6 +99,14 @@
                     </td>
                     <td class="pb-2">
                         <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pb-2 pr-2">
+                        <label for="email" class="block text-gray-700 text-sm font-bold">Email of the Cheif Occupant:</label>
+                    </td>
+                    <td class="pb-2">
+                        <input type="Date" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
                     </td>
                 </tr>
                 <tr>

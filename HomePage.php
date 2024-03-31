@@ -97,7 +97,7 @@
                <div>
                <h3 class="text-xl font-semibold mb-2">Acts Related to Elections</h3>
                <p class="mb-4">Access information and documents pertaining to electoral laws and regulations.</p>
-               <a href="#" class="text-blue-500 hover:underline">View  &rarr;</a>
+               <a href="Instruction.html" class="text-blue-500 hover:underline">View  &rarr;</a>
             </div>
             </div>
 
