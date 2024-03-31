@@ -57,7 +57,7 @@
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Register to Vote</h3>
                     <p class="mb-4">Ensure your voice is heard in the democratic process.</p>
-                    <a href="#" class="text-blue-500 hover:underline">Register to Vote &rarr;</a>
+                    <a href="registerElection.php" class="text-blue-500 hover:underline">Register to Vote &rarr;</a>
                 </div>
             </div>
             <div class="card flex items-center">
@@ -90,6 +90,17 @@
                     <a href="#" class="text-blue-500 hover:underline">View Election Calendar &rarr;</a>
                 </div>
             </div>
+            <div class="card flex items-center">
+               <div class="mr-4">
+               <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
+            </div>
+               <div>
+               <h3 class="text-xl font-semibold mb-2">Acts Related to Elections</h3>
+               <p class="mb-4">Access information and documents pertaining to electoral laws and regulations.</p>
+               <a href="#" class="text-blue-500 hover:underline">View  &rarr;</a>
+            </div>
+            </div>
+
         </div>
     </div>
     <?php include 'footer.php'; ?>

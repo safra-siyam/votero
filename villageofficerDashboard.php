@@ -74,9 +74,9 @@
                     <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-2">View Reports</h3>
-                    <p class="mb-4">Access reports and statistics related to voting activities.</p>
-                    <a href="#" class="text-blue-500 hover:underline">View Reports &rarr;</a>
+                    <h3 class="text-xl font-semibold mb-2">Add Elections</h3>
+                    <p class="mb-4">Manage the process of adding new elections, including setting up parameters and details.</p>
+                    <a href="addElection.php" class="text-blue-500 hover:underline">Add Election &rarr;</a>
                 </div>
             </div>
             <div class="card flex items-center">
