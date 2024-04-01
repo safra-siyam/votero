@@ -98,18 +98,26 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="font-bold text-xl">Votero</h1>
-            <ul class="flex space-x-4">
-                <li>
-                    <a href="#" class="hover:underline">
-                        <i class="fas fa-user-circle mr-2 text-lg"></i>
-                        My Account
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="font-bold text-xl">Votero</h1>
+        <ul class="flex space-x-4">
+            <li>
+                <a href="#" class="hover:underline">
+                    <i class="fas fa-user-circle mr-2 text-lg"></i>
+                    <?php 
+                        session_start(); // Start the session
+                        if(isset($_SESSION['username'])) { // Check if the username is set in the session
+                            echo $_SESSION['username']; // Display the username
+                        } else {
+                            echo "My Account"; // If not logged in, display default text
+                        }
+                    ?>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
     <div class="hero text-center">

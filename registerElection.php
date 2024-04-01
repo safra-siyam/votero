@@ -62,7 +62,7 @@
                         <label for="txtdob" class="block text-gray-700 text-sm font-bold">Email:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="Date" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="jhonabc13@gmail.com">
+                        <input type="text" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="jhonabc13@gmail.com">
                     </td>
                 </tr>
 
@@ -106,7 +106,7 @@
                         <label for="email" class="block text-gray-700 text-sm font-bold">Email of the Cheif Occupant:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="Date" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
+                        <input type="text" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
                     </td>
                 </tr>
                 <tr>
@@ -153,14 +153,27 @@
                         <input type="Date" name="txtDate" id="txtDate" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Date">
                     </td>
                 </tr>
-               
+                
+                <tr>
+                    <td class="pb-2 pr-2">
+                        <input type="checkbox" name="agree" id="agree" class="mr-2" onchange="enableButton()"> 
+                        <label for="agree" class="block text-gray-700 text-sm font-bold">I solemnly affirm that all the above information is accurate.</label>
+                    </td>
+                    <td class="pb-2"></td>
+                </tr>
             </table>
-            <button type="submit" name="btnAdd" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Register Now</button>
+            <button type="submit" name="btnAdd" id="registrationButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" disabled>Register Now</button>
         </form>
     </main>
 
-
-
+    <!-- JavaScript to enable/disable the registration button based on checkbox state -->
+    <script>
+        function enableButton() {
+            var agreeCheckbox = document.getElementById("agree");
+            var registrationButton = document.getElementById("registrationButton");
+            registrationButton.disabled = !agreeCheckbox.checked;
+        }
+    </script>
 
     <footer class="bg-gray-900 text-white py-4">
         <div class="container mx-auto text-center">
