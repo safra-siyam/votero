@@ -87,7 +87,7 @@
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Election Dates</h3>
                     <p class="mb-4">Stay informed about upcoming election dates and deadlines to ensure you don't miss your chance to vote.</p>
-                    <a href="#" class="text-blue-500 hover:underline">View Election Calendar &rarr;</a>
+                    <a href="DisplayElection.php" class="text-blue-500 hover:underline">View Election Calendar &rarr;</a>
                 </div>
             </div>
             <div class="card flex items-center">

@@ -56,7 +56,7 @@
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Manage Voters</h3>
                     <p class="mb-4">Access and manage voter information.</p>
-                    <a href="#" class="text-blue-500 hover:underline">Manage Voters &rarr;</a>
+                    <a href="ManageVoters.php" class="text-blue-500 hover:underline">Manage Voters &rarr;</a>
                 </div>
             </div>
             <div class="card flex items-center">

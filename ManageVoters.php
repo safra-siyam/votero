@@ -38,15 +38,20 @@
             // echo "<th class='px-8 py-4'>Check</th>";
             echo "<th class='px-8 py-4 text-center'>Name</th>";
             echo "<th class='px-12 py-4'>NIC</th>";
-            echo "<th class='px-8 py-4'>Gender</th>";
+            echo "<th class='px-4 py-4'>Gender</th>";
             echo "<th class='px-8 py-4'>Date of Birth</th>";
             echo "<th class='px-8 py-4'>Chief Occupant Name</th>";
             echo "<th class='px-12 py-4'>Chief Occupant NIC</th>";
             echo "<th class='px-8 py-4'>Chief Occupant Relationship</th>";
-            echo "<th class='px-8 py-4'>Home ID</th>";
+            echo "<th class='px-4 py-4'>Home ID</th>";
             echo "<th class='px-8 py-4'>Address</th>";
             echo "<th class='px-8 py-4'>Grama Niladhari Division</th>";
-            echo "<th class='px-8 py-4'>Registration Date</th>";
+            echo "<th class='px-4 py-4'>Registration Date</th>";
+            echo "<th class='px-4 py-4'>Eligibility</th>";
+
+
+            echo "<th class='px-4 py-4'>Approve</th>";
+            
             echo "</tr>";
             echo "</thead>";
             echo "<tbody id='voters-list'>";
@@ -65,7 +70,28 @@
                 echo "<td>" . $row["rHome_id"] . "</td>";
                 echo "<td>" . $row["rAddress"] . "</td>";
                 echo "<td>" . $row["rGramaNiladhariDivision"] . "</td>";
+
+
                 echo "<td>" . $row["rRegistrationDate"] . "</td>";
+                echo "<td>" . $row["elegibility_status"] . "</td>";
+
+
+                ?>
+                <td>
+                <!-- <a href="approveVoters.php?id=<?php echo $row['rNIC'];?>" class="inline-block border border-transparent text-xs rounded-md py-1 px-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white hover:border-transparent" tooltip-placement="top" title="Edit"> -->
+                <!-- <a href="approveVoters.php?id=<?php echo urlencode($row['rNIC']); ?>" class="inline-block border border-transparent text-xs rounded-md py-1 px-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white hover:border-transparent" tooltip-placement="top" title="Edit"> -->
+                <a href="approveVoters.php?id=<?php echo $row['rId']; ?>" class="inline-block border border-transparent text-xs rounded-md py-1 px-2 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white hover:border-transparent" tooltip-placement="top" title="Approve">
+    <i class="fa fa-check"></i> Approve
+</a>
+
+    
+            
+            </td>
+                
+                <?php
+
+                
+                
                 echo "</tr>";
             }
             echo "</tbody>";

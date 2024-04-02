@@ -1,0 +1,73 @@
+CREATE TABLE Admin
+(
+Admin_ID varchar(5) not null primary key,
+Admin_Username varchar(15) unique not null,
+Admin_Password varchar(8) not null
+);
+
+CREATE TABLE Voter
+(
+ Voter_NIC varchar(12) not null primary key,
+ Voter_Name varchar(50) not null,
+ Email varchar(50) unique not null,
+ Mobile_Number int not null,
+ Voter_Type varchar(20) not null,
+ Voter_Username varchar(15) not null unique,
+ Voter_Password varchar(8) not null
+);
+
+CREATE TABLE Election
+(
+Election_ID varchar(5) not null primary key,
+Election_Name varchar(50) not null,
+Election_Date date not null
+);
+
+CREATE TABLE VillageOfficer
+(
+ VillageOfficer_ID varchar(5) not null primary key,
+ VillageOfficer_Name varchar(50) not null,
+ Email varchar(50) unique not null,
+ Division varchar(25) unique not null,
+ VillageOfficer_Username varchar(15) not null unique,
+ VillageOfficer_Password varchar(8) not null,
+ Admin_ID varchar(5) not null,
+ foreign key(Admin_ID) references Admin(Admin_ID)
+);
+
+CREATE TABLE Register
+(
+CheifOccupant_Name varchar(50) not null,
+EligibilityStatus varchar(5) not null,
+Home_ID int unique not null,
+Gender varchar(8) not null,
+Date_Of_Birth date not null,
+GramaNiladari_Division varchar(30) not null,
+Registered_Date date not null,
+Voter_NIC varchar(12) unique not null,
+Election_ID varchar(5) not null,
+foreign key(Voter_NIC) references Voter(Voter_NIC),
+foreign key(Election_ID) references Election(Election_ID),
+primary key(Voter_NIC,Election_ID)
+);
+
+CREATE TABLE Announce
+(
+Announce_Date date not null,
+Division varchar(20) not null,
+Election_ID varchar(5) not null,
+VillageOfficer_ID varchar(5) not null,
+foreign key(Election_ID) references Election(Election_ID),
+foreign key(VillageOfficer_ID) references VillageOfficer(VillageOfficer_ID),
+primary key(Election_ID,VillageOfficer_ID)
+);
+
+CREATE TABLE Message
+(
+Message_Content varchar(50),
+VillageOfficer_ID varchar(5) not null,
+Voter_NIC varchar(12) not null,
+foreign key(VillageOfficer_ID) references VillageOfficer(VillageOfficer_ID),
+foreign key(Voter_NIC) references Voter(Voter_NIC),
+primary key(VillageOfficer_ID,Voter_NIC)
+);
