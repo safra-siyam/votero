@@ -1,3 +1,47 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "votero";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $stmt = $conn->prepare("INSERT INTO registration (rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssss", $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
+
+    $name = $_POST['name'];
+    $nic = $_POST['nic'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $chief_name = $_POST['chief_name'];
+    $chief_nic = $_POST['chief_nic'];
+    $relationship = $_POST['relationship'];
+    $home_id = $_POST['home_id'];
+    $address = $_POST['address'];
+    $grama_division = $_POST['grama_division'];
+    $registration_date = $_POST["date"]; 
+
+    if ($stmt->execute()) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +78,6 @@
     </nav>
 
     <!-- Hero Section -->
-   
-
-   
     <main class="container mx-auto px-4 py-8">
         <h2 class="text-2xl font-bold mb-4">Register for Upcoming Election</h2>
         <form name="frmRegisterElection" method="post" action="#">
@@ -51,106 +92,106 @@
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="name" class="block text-gray-700 text-sm font-bold">NIC Number:</label>
+                        <label for="nic" class="block text-gray-700 text-sm font-bold">NIC Number:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter the NIC Number">
+                        <input type="text" name="nic" id="nic" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter the NIC Number">
                     </td>
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="txtdob" class="block text-gray-700 text-sm font-bold">Email:</label>
+                        <label for="email" class="block text-gray-700 text-sm font-bold">Email:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="jhonabc13@gmail.com">
+                        <input type="email" name="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="jhonabc13@gmail.com">
                     </td>
                 </tr>
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="txtGender" class="block text-gray-700 text-sm font-bold">Gender:</label>
+                        <label for="gender" class="block text-gray-700 text-sm font-bold">Gender:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="txtGender" id="txtGender" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Male/Female/Other">
+                        <input type="text" name="gender" id="gender" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Male/Female/Other">
                     </td>
                 </tr>
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="txtdob" class="block text-gray-700 text-sm font-bold">Date Of Birth:</label>
+                        <label for="dob" class="block text-gray-700 text-sm font-bold">Date Of Birth:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="Date" name="txtdob" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Date Of Birth">
+                        <input type="date" name="dob" id="dob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Date Of Birth">
                     </td>
                 </tr>
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="name" class="block text-gray-700 text-sm font-bold">Full Name of the Chief Occupant:</label>
+                        <label for="chief_name" class="block text-gray-700 text-sm font-bold">Full Name of the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
+                        <input type="text" name="chief_name" id="chief_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
                     </td>
                 </tr>
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="name" class="block text-gray-700 text-sm font-bold">NIC of the Chief Occupant:</label>
+                        <label for="chief_nic" class="block text-gray-700 text-sm font-bold">NIC of the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
+                        <input type="text" name="chief_nic" id="chief_nic" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
                     </td>
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="email" class="block text-gray-700 text-sm font-bold">Email of the Cheif Occupant:</label>
+                        <label for="chief_email" class="block text-gray-700 text-sm font-bold">Email of the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="email" id="txtdob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
+                        <input type="email" name="chief_email" id="chief_email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
                     </td>
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="name" class="block text-gray-700 text-sm font-bold">Relationship to the Chief Occupant:</label>
+                        <label for="relationship" class="block text-gray-700 text-sm font-bold">Relationship to the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="pb-2 pr-2 w-1/4">
-                        <label for="txtId" class="block text-gray-700 text-sm font-bold">Home ID:</label>
-                    </td>
-                    <td class="pb-2">
-                        <input type="text" name="txtId" id="txtId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Home ID">
+                        <input type="text" name="relationship" id="relationship" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
                     </td>
                 </tr>
 
                 <tr>
                     <td class="pb-2 pr-2 w-1/4">
-                        <label for="txtId" class="block text-gray-700 text-sm font-bold">Address:</label>
+                        <label for="home_id" class="block text-gray-700 text-sm font-bold">Home ID:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="txtId" id="txtId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Address">
+                        <input type="text" name="home_id" id="home_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Home ID">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="pb-2 pr-2 w-1/4">
+                        <label for="address" class="block text-gray-700 text-sm font-bold">Address:</label>
+                    </td>
+                    <td class="pb-2">
+                        <input type="text" name="address" id="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Address">
                     </td>
                 </tr>
                 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="txtDivision" class="block text-gray-700 text-sm font-bold">Grama Niladari Division:</label>
+                        <label for="grama_division" class="block text-gray-700 text-sm font-bold">Grama Niladari Division:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="text" name="txtDivision" id="txtDivision" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Grama Niladari Division">
+                        <input type="text" name="grama_division" id="grama_division" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Grama Niladari Division">
                     </td>
                 </tr>
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="txtDate" class="block text-gray-700 text-sm font-bold">Date:</label>
+                        <label for="date" class="block text-gray-700 text-sm font-bold">Date:</label>
                     </td>
                     <td class="pb-2">
-                        <input type="Date" name="txtDate" id="txtDate" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Date">
+                        <input type="date" name="date" id="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Date">
                     </td>
                 </tr>
                 
@@ -165,7 +206,6 @@
             <button type="submit" name="btnAdd" id="registrationButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" disabled>Register Now</button>
         </form>
     </main>
-
     <!-- JavaScript to enable/disable the registration button based on checkbox state -->
     <script>
         function enableButton() {

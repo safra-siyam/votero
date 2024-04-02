@@ -13,6 +13,7 @@
 <?php include 'navbar.php'; ?>
     <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Manage Voters</h1>
+        <div class="flex justify-center">
         <?php
         // Establish connection to your database
         $servername = "localhost";
@@ -34,23 +35,26 @@
             echo "<table id='voters-table' class='w-full border-collapse border border-gray-200'>";
             echo "<thead class='bg-gray-200'>";
             echo "<tr>";
-            echo "<th class='p-2'>Name</th>";
-            echo "<th class='p-2'>NIC</th>";
-            echo "<th class='p-2'>Gender</th>";
-            echo "<th class='p-2'>Date of Birth</th>";
-            echo "<th class='p-2'>Chief Occupant Name</th>";
-            echo "<th class='p-2'>Chief Occupant NIC</th>";
-            echo "<th class='p-2'>Chief Occupant Relationship</th>";
-            echo "<th class='p-2'>Home ID</th>";
-            echo "<th class='p-2'>Address</th>";
-            echo "<th class='p-2'>Grama Niladhari Division</th>";
-            echo "<th class='p-2'>Registration Date</th>";
+            // echo "<th class='px-8 py-4'>Check</th>";
+            echo "<th class='px-8 py-4 text-center'>Name</th>";
+            echo "<th class='px-12 py-4'>NIC</th>";
+            echo "<th class='px-8 py-4'>Gender</th>";
+            echo "<th class='px-8 py-4'>Date of Birth</th>";
+            echo "<th class='px-8 py-4'>Chief Occupant Name</th>";
+            echo "<th class='px-12 py-4'>Chief Occupant NIC</th>";
+            echo "<th class='px-8 py-4'>Chief Occupant Relationship</th>";
+            echo "<th class='px-8 py-4'>Home ID</th>";
+            echo "<th class='px-8 py-4'>Address</th>";
+            echo "<th class='px-8 py-4'>Grama Niladhari Division</th>";
+            echo "<th class='px-8 py-4'>Registration Date</th>";
             echo "</tr>";
             echo "</thead>";
             echo "<tbody id='voters-list'>";
             // Output data of each row
             while($row = $result->fetch_assoc()) {
                 echo "<tr>";
+                // echo "<th class='px-8 py-4'>Name</th>"; //to display it in centralized way
+                //echo "<td class='px-8 py-4 text-center'><button class='toggle-eligible' data-id='" . $row['id'] . "'>Eligible</button></td>"; // Button to toggle eligibility
                 echo "<td>" . $row["rName"] . "</td>";
                 echo "<td>" . $row["rNIC"] . "</td>";
                 echo "<td>" . $row["rgender"] . "</td>";
@@ -72,6 +76,7 @@
         $conn->close();
         ?>
     </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="manage_voters.js"></script>
@@ -91,5 +96,16 @@
             });
         });
     </script>
+    <!-- <script>
+        $(document).ready(function(){
+            // Toggle eligibility when button is clicked
+            $('.toggle-eligible').click(function() {
+                var id = $(this).data('id');
+                var eligibility = $(this).text().trim();
+                var newEligibility = (eligibility === 'Eligible') ? 'Not Eligible' : 'Eligible';
+                $(this).text(newEligibility);
+            });
+        });
+    </script> -->
 </body>
 </html>
