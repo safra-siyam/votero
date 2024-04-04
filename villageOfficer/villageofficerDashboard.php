@@ -48,7 +48,8 @@
 
     <!-- Main Content Section -->
     <div class="main-content">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div>
             <div class="card flex items-center">
                 <div class="mr-4">
                     <i class="fas fa-users text-blue-500 text-3xl"></i>

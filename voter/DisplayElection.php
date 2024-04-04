@@ -12,7 +12,7 @@
 <body class="bg-gray-100">
 <?php include 'navbar.php'; ?>
     <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4">Upcoming Elections</h1>
+        <h1 class="text-2xl font-bold mb-4"style="font-size: 24px;">Upcoming Elections</h1><br>
         <div class="flex justify-center">
         <?php
         // Establish connection to your database
@@ -32,7 +32,7 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<table id='voters-table' class='w-full border-collapse border border-gray-200'>";
+            echo "<table id='voters-table' class='w-full border-collapse border border-gray-200' style='font-size: 18px;'>";
             echo "<thead class='bg-gray-200'>";
             echo "<tr>";
             // echo "<th class='px-8 py-4'>Check</th>";

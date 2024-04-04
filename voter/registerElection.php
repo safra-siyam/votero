@@ -63,31 +63,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body class="bg-gray-100"">
-<!-- <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #fff; color: #333;"> -->
 
-    <!-- Navbar -->
-    <!-- <nav class="bg-blue-500 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-white font-bold text-xl">Votero</h1>
-            <ul class="flex space-x-4">
-                <li><a href="#" class="text-white hover:underline"></a></li>
-                <li><a href="#" class="text-white hover:underline"></a></li>
-                <li><a href="login.php" class="text-white hover:underline">Logout</a></li>
-            </ul>
-        </div>
-    </nav> -->
 
     <?php include 'navbar.php'; ?>
 
 
     <!-- Hero Section -->
     <main class="container mx-auto px-4 py-8">
-        <h2 class="text-2xl font-bold mb-4">Register for Upcoming Election</h2>
+        <h2 class="text-2xl font-bold mb-4"style="font-size: 24px;">Register for Upcoming Election</h2>
         <form name="frmRegisterElection" method="post" action="#">
             <table class="w-full mb-6">
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="electiontype" class="block text-gray-700 text-sm font-bold">Election Type:</label>
+                        <!-- <label for="electiontype" class="block text-gray-700 text-sm font-bold">Election Type:</label>
+                     -->
+                     <label for="electiontype" class="block text-gray-700 text-sm font-bold" style="font-size: 16px;">Election Type:</label>
+
                     </td>
                     <td class="pb-2 pr-2">
                     <select name="electiontype" id="electiontype" required onchange="toggleForm()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -100,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="name" class="block text-gray-700 text-sm font-bold">Name:</label>
+                        <label for="name" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Name:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Name according to NIC">
@@ -108,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="nic" class="block text-gray-700 text-sm font-bold">NIC Number:</label>
+                        <label for="nic" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">NIC Number:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="nic" id="nic" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter the NIC Number">
@@ -116,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="email" class="block text-gray-700 text-sm font-bold">Email:</label>
+                        <label for="email" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Email:</label>
                     </td>
                     <td class="pb-2">
                         <input type="email" name="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="jhonabc13@gmail.com">
@@ -125,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="gender" class="block text-gray-700 text-sm font-bold">Gender:</label>
+                        <label for="gender" class="block text-gray-700 text-sm "style="font-size: 16px;">Gender:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="gender" id="gender" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Male/Female/Other">
@@ -134,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="dob" class="block text-gray-700 text-sm font-bold">Date Of Birth:</label>
+                        <label for="dob" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Date Of Birth:</label>
                     </td>
                     <td class="pb-2">
                         <input type="date" name="dob" id="dob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Date Of Birth">
@@ -143,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="chief_name" class="block text-gray-700 text-sm font-bold">Full Name of the Chief Occupant:</label>
+                        <label for="chief_name" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Full Name of the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="chief_name" id="chief_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
@@ -152,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="chief_nic" class="block text-gray-700 text-sm font-bold">NIC of the Chief Occupant:</label>
+                        <label for="chief_nic" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">NIC of the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="chief_nic" id="chief_nic" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
@@ -160,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="chief_email" class="block text-gray-700 text-sm font-bold">Email of the Chief Occupant:</label>
+                        <label for="chief_email" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Email of the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
                         <input type="email" name="chief_email" id="chief_email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
@@ -168,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="relationship" class="block text-gray-700 text-sm font-bold">Relationship to the Chief Occupant:</label>
+                        <label for="relationship" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Relationship to the Chief Occupant:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="relationship" id="relationship" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Chief Occupant Detail">
@@ -177,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <tr>
                     <td class="pb-2 pr-2 w-1/4">
-                        <label for="home_id" class="block text-gray-700 text-sm font-bold">Home ID:</label>
+                        <label for="home_id" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Home ID:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="home_id" id="home_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Home ID">
@@ -186,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <tr>
                     <td class="pb-2 pr-2 w-1/4">
-                        <label for="address" class="block text-gray-700 text-sm font-bold">Address:</label>
+                        <label for="address" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Address:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="address" id="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Address">
@@ -195,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="grama_division" class="block text-gray-700 text-sm font-bold">Grama Niladari Division:</label>
+                        <label for="grama_division" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Grama Niladari Division:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="grama_division" id="grama_division" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Grama Niladari Division">
@@ -204,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <label for="date" class="block text-gray-700 text-sm font-bold">Date:</label>
+                        <label for="date" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Date:</label>
                     </td>
                     <td class="pb-2">
                         <input type="date" name="date" id="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Date">
@@ -213,8 +204,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 <tr>
                     <td class="pb-2 pr-2">
-                        <input type="checkbox" name="agree" id="agree" class="mr-2" onchange="enableButton()"> 
-                        <label for="agree" class="block text-gray-700 text-sm font-bold">I solemnly affirm that all the above information is accurate.</label>
+                        <input type="checkbox" name="agree" id="agree" class="mr-4" onchange="enableButton()"> 
+                        <label for="agree" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">All the Above information is accurate.</label>
                     </td>
                     <td class="pb-2"></td>
                 </tr>

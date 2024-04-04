@@ -26,20 +26,22 @@ $sql=mysqli_query($con,"select registration.*
                         where voter.Voter_Username = '$username'"
                       );
 
-while($row=mysqli_fetch_array($sql))
-{
-?>
+                      // if ($sql->num_rows > 0) {
+    while($row=mysqli_fetch_array($sql))
+    {
+    ?>
 
-<h1>Voter Nic : <b><?php echo $row['rNIC'];?></b></h1>
-<h1>Voter name :<b> <?php echo $row['rName'];?>  </b></h1>
-<h1>Grama Niladhari Division :<b> <?php echo $row['rGramaNiladhariDivision'];?>  </b></h1>
-<h1>Election :<b> <?php echo $row['electionType'];?>  </b></h1>
-<h1>Date :<b> <?php echo $row['rRegistrationDate'];?>  </b></h1>
-<h1>Eligibilty Status :<b> <?php echo $row['elegibility_status'];?>  </b></h1>
+    <h1>Voter Nic : <b><?php echo $row['rNIC'];?></b></h1>
+    <h1>Voter name :<b> <?php echo $row['rName'];?>  </b></h1>
+    <h1>Grama Niladhari Division :<b> <?php echo $row['rGramaNiladhariDivision'];?>  </b></h1>
+    <h1>Election :<b> <?php echo $row['electionType'];?>  </b></h1>
+    <h1>Date :<b> <?php echo $row['rRegistrationDate'];?>  </b></h1>
+    <h1>Eligibilty Status :<b> <?php echo $row['elegibility_status'];?>  </b></h1>
 
-<?php
-}
-?>
+    <?php
+    }
+
+    ?>
 
 
 

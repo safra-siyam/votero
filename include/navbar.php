@@ -77,8 +77,13 @@
         </div>
         
         <div>
-            <a class="navbar-brand" href="#" style="color: #fff; font-size: 24px;">VOTERO</a>
+            <a class="navbar-brand" href="#" style="color: #fff; font-size: 34px; font-weight: bold;">VOTERO</a>
         </div>
+<br><br><br>
+<h1 style="text-align: center; font-size: 46px; color: #fff; font-weight: bold;">Welcome To Votero</h1><br>
+<h1 style="text-align: center; font-size: 20px; color: #fff;">Empowering Srilankans to register and participate in elections</h1>
+
+
 
         <ul class="nav navbar-nav navbar-right">
           <li class="">
