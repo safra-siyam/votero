@@ -43,9 +43,11 @@
     </style>
 </head>
 
-<body>
+<body class="bg-gray-100">
+<!-- <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #fff; color: #333;"> -->
 
-    <?php include 'hero_section.php'; ?>
+
+    <?php include 'navbar.php'; ?>
 
     <!-- Main Content Section -->
     <div class="main-content">
@@ -60,27 +62,18 @@
                     <a href="registerElection.php" class="text-blue-500 hover:underline">Register to Vote &rarr;</a>
                 </div>
             </div>
-            <div class="card flex items-center">
+        <div class="card flex items-center">
                 <div class="mr-4">
                     <i class="fas fa-user-check text-blue-500 text-3xl"></i>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Check Voter Registration Status</h3>
                     <p class="mb-4">Verify your voter registration status.</p>
-                    <a href="#" class="text-blue-500 hover:underline">Check Registration &rarr;</a>
+                    <a href="CheckRegistration.php" class="text-blue-500 hover:underline">Check Registration &rarr;</a>
                 </div>
             </div>
-            <div class="card flex items-center">
-                <div class="mr-4">
-                    <i class="fas fa-vote-yea text-blue-500 text-3xl"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Download Voting Cards</h3>
-                    <p class="mb-4">Explore voting options in Sri Lanka.</p>
-                    <a href="#" class="text-blue-500 hover:underline">Download  &rarr;</a>
-                </div>
-            </div>
-            <div class="card flex items-center">
+
+        <div class="card flex items-center">
                 <div class="mr-4">
                     <i class="far fa-calendar-alt text-blue-500 text-3xl"></i>
                 </div>
@@ -97,13 +90,13 @@
                <div>
                <h3 class="text-xl font-semibold mb-2">Acts Related to Elections</h3>
                <p class="mb-4">Access information and documents pertaining to electoral laws and regulations.</p>
-               <a href="Instruction.html" class="text-blue-500 hover:underline">View  &rarr;</a>
+               <a href="Instruction.php" class="text-blue-500 hover:underline">View  &rarr;</a>
             </div>
             </div>
 
         </div>
     </div>
-    <?php include 'footer.php'; ?>
+    <?php include '../include/footer.php'; ?>
 
 </body>
 

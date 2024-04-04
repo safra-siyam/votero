@@ -48,7 +48,9 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
+    <?php include 'navbar.php'; ?>
+
     <div class="container">
         <h1 class="text-3xl font-bold text-center mb-6 text-blue">Supplementary Electoral Register Information</h1>
         

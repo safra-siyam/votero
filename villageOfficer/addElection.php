@@ -74,9 +74,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         }
     </style>
 </head>
-<body class="flex flex-col">
+<body class="bg-gray-100"">
     <!-- Navbar -->
-    <nav class="bg-blue-500 p-4">
+    <!-- <nav class="bg-blue-500 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white font-bold text-xl">Votero</h1>
             <ul class="flex space-x-4">
@@ -85,7 +85,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <li><a href="login.php" class="text-white hover:underline">Logout</a></li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
+
+    <?php include 'navbar.php'; ?>
+
 
     <!-- Hero Section -->
    
@@ -136,12 +139,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     </main>
 
 
+    <?php include '../include/footer.php'; ?>
 
 
-    <footer class="bg-gray-900 text-white py-4">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Votero. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>

@@ -8,14 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-/* Footer styles */
+        /* Footer styles */
         .footer {
-            background-color: #333;
+            background-color: #6fbfff; /* Light blue */
             color: #fff;
             padding-top: 2rem;
             padding-bottom: 2rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
         }
     </style>
+
 </head>
 
 <body>

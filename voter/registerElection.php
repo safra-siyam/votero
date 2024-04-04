@@ -13,9 +13,10 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $stmt = $conn->prepare("INSERT INTO registration (rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssss", $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
+    $stmt = $conn->prepare("INSERT INTO registration (electionType,rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssssss", $electionType, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
 
+    $electionType = $_POST['electiontype'];
     $name = $_POST['name'];
     $nic = $_POST['nic'];
     $gender = $_POST['gender'];
@@ -39,9 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,9 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 </head>
-<body class="flex flex-col">
+<body class="bg-gray-100"">
+<!-- <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #fff; color: #333;"> -->
+
     <!-- Navbar -->
-    <nav class="bg-blue-500 p-4">
+    <!-- <nav class="bg-blue-500 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-white font-bold text-xl">Votero</h1>
             <ul class="flex space-x-4">
@@ -75,13 +75,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="login.php" class="text-white hover:underline">Logout</a></li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
+
+    <?php include 'navbar.php'; ?>
+
 
     <!-- Hero Section -->
     <main class="container mx-auto px-4 py-8">
         <h2 class="text-2xl font-bold mb-4">Register for Upcoming Election</h2>
         <form name="frmRegisterElection" method="post" action="#">
             <table class="w-full mb-6">
+                <tr>
+                    <td class="pb-2 pr-2">
+                        <label for="electiontype" class="block text-gray-700 text-sm font-bold">Election Type:</label>
+                    </td>
+                    <td class="pb-2 pr-2">
+                    <select name="electiontype" id="electiontype" required onchange="toggleForm()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="" disabled selected>Select Election</option>
+                            <option value="presidential_Election">Presidential Election</option>
+                            <option value="parliamentary_Election">Parliamentary Election</option>
+                            <option value="Local_Government_Elections">Local Government Elections</option>
+                    </select>
+                    </td>
+                </tr>
                 <tr>
                     <td class="pb-2 pr-2">
                         <label for="name" class="block text-gray-700 text-sm font-bold">Name:</label>

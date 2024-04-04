@@ -43,8 +43,8 @@
     </style>
 </head>
 
-<body>
-    <?php include 'hero_section.php'; ?>
+<body class="bg-gray-100">
+    <?php include 'navbar.php'; ?>
 
     <!-- Main Content Section -->
     <div class="main-content">
@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-    <?php include 'footer.php'; ?>
+    <?php include '../include/footer.php'; ?>
 
 
 </body>

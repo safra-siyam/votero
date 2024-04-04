@@ -44,7 +44,7 @@ try {
                         $_SESSION['user'] = $result->fetch_assoc();
     
                         // Redirect to a dashboard or profile page
-                        header("Location: HomePage.php");
+                        header("Location: ../voter/HomePage.php");
                         exit();
                     } else {
                         // User not found, display an error message or redirect back to the login page
@@ -74,7 +74,7 @@ try {
                         $_SESSION['user'] = $result->fetch_assoc();
     
                         // Redirect to a dashboard or profile page
-                        header("Location: villageofficerDashboard.php");
+                        header("Location: ../villageOfficer/villageofficerDashboard.php");
                         exit();
                     } else {
                         // User not found, display an error message or redirect back to the login page
