@@ -37,12 +37,6 @@ while($row=mysqli_fetch_array($sql))
 <h1>Date :<b> <?php echo $row['rRegistrationDate'];?>  </b></h1>
 <h1>Eligibilty Status :<b> <?php echo $row['elegibility_status'];?>  </b></h1>
 
-
-
-
-
-
-
 <?php
 }
 ?>
@@ -62,7 +56,14 @@ while($row=mysqli_fetch_array($sql))
 <br>
 <br>
 
-<h1>Generate Voting Card</h1>
+<form method="post" action="generate_pdf.php">
+    <button type="submit" name="generate_pdf" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-xl">
+        Generate Voting Card
+    </button>
+</form>
+
+
+
 
 </body>
 
