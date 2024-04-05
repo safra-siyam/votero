@@ -145,7 +145,6 @@ else{
         echo "<th class='px-4 py-4'>Registration Date</th>";
         echo "<th class='px-2 py-4'>Eligibility</th>";
         echo "<th class='px-2 py-4'>Election Type</th>";
-
         echo "<th class='px-4 py-4'>Approve</th>";
         echo "</tr>";
         echo "</thead>";

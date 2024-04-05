@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Votero</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .styled-image {
+    max-width: 100%; /* Ensure the image does not exceed its container's width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease; /* Add a smooth transition effect on hover */
+}
+
+.styled-image:hover {
+    transform: scale(1.1); /* Enlarge the image slightly on hover */
+}
+
+    </style>
 </head>
 
 <body class="bg-gray-100">
@@ -45,13 +59,14 @@
                             <div>
                                 <h1 class="text-3xl lg:text-5xl font-bold text-blue-500 mb-4">Join Us Now!</h1>
                                 <p class="text-lg lg:text-xl text-gray-800 mb-6">Be a part of the future! Register now for the upcoming elections in Sri Lanka and experience the convenience of our leading online election registration platform. Don't miss your chance to make your voice heard!</p>
-                                <div class="flex space-x-4">
+                                <!-- <div class="flex space-x-4">
                                     <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">Contact Us</a>
                                     <a href="#" class="bg-white text-blue-500 px-6 py-3 rounded-lg font-semibold border border-blue-500 hover:bg-blue-100 transition duration-300">About Us</a>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="text-center">
-                                <img src="vote1.jpg" alt="">
+                                <img class="w-full max-w-xs mx-auto rounded-lg shadow-md styled-image" src="assets/images/vote1.jpg" alt="">
+
                             </div>
                         </div>
                     </div>
@@ -64,7 +79,7 @@
       <div class="container mx-auto px-4">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div class="text-center lg:text-left">
-                  <img src="vote2.jpg" alt="About Us Image" class="rounded-lg shadow-lg">
+                  <img class="w-full max-w-xs mx-auto rounded-lg shadow-md styled-image" src="assets/images/vote2.jpg" alt="About Us Image" class="rounded-lg shadow-lg">
               </div>
               <div>
                   <div class="heading_container mb-6">

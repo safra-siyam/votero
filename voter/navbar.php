@@ -98,7 +98,8 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li class="">
-            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" style="color: #fff; font-size: 24px; aria-expanded="false">
+          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" style="color: #fff; font-size: 24px;" aria-expanded="false">
+
             <?php    echo  $username;         ?>
                         
               <span class=" fa fa-angle-down"></span>

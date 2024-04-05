@@ -65,7 +65,9 @@ $sql=mysqli_query($con,"select registration.*
 </form>
 
 
-
+<div class="text-center mb-4">
+        <a href="HomePage.php" class="text-blue-500 hover:underline">Go Back to Dashboard</a>
+    </div>
 
 </body>
 

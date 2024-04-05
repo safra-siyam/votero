@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .left_col {
-  background: #2A3F54;
+  background: #1f2c3a;
 }
 
 .nav-sm .container.body .col-md-3.left_col {
@@ -213,7 +213,7 @@
 
 .nav_menu {
   float: left;
-  background: #3b32e9;
+  background: #206af2;
   border-bottom: 1px solid #D9DEE4;
   margin-bottom: 10px;
   width: 100%;
@@ -627,7 +627,7 @@ a:hover, a:focus {
   float: right;
 }
 
-.top_nav .navbar-right li {
+.navbar-right > li {
   display: inline-block;
   float: right;
   position: static;
@@ -1062,7 +1062,6 @@ h2 {
 .accordion .panel:hover {
   background: #F2F5F7;
 }
-
 .x_panel {
   position: relative;
   width: 100%;
@@ -1073,10 +1072,11 @@ h2 {
   border: 1px solid #E6E9ED;
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
-  column-break-inside: avoid;
+  break-inside: avoid; /* corrected property */
   opacity: 1;
   transition: all .2s ease;
 }
+
 
 .x_title {
   border-bottom: 2px solid #E6E9ED;
@@ -1540,9 +1540,10 @@ table.display thead th:active, table.display thead td:active {
 }
 
 .dataTables_scrollBody {
-  *margin-top: -1px;
+  margin-top: -1px; /* corrected property */
   -webkit-overflow-scrolling: touch;
 }
+
 
 .top .dataTables_info {
   float: none;
@@ -2544,8 +2545,13 @@ input.parsley-error, textarea.parsley-error, select.parsley-error {
   box-shadow: 0 0 4px -2px #CE5454;
   position: relative;
   left: 0;
-  -moz-animation: .7s 1 shake linear;
-  -webkit-animation: 0.7s 1 shake linear;
+  animation: shake 0.7s 1 linear; /* corrected property */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80%, 100% { transform: translateX(10px); }
 }
 
 .item input, .item textarea {

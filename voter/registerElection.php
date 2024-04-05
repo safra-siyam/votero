@@ -221,6 +221,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             registrationButton.disabled = !agreeCheckbox.checked;
         }
     </script>
+    <div class="text-center mb-4">
+        <a href="HomePage.php" class="text-blue-500 hover:underline">Go Back to Dashboard</a>
+    </div>
 
     <footer class="bg-gray-900 text-white py-4">
         <div class="container mx-auto text-center">
