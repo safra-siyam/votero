@@ -13,10 +13,11 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $stmt = $conn->prepare("INSERT INTO registration (electionType,rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssssss", $electionType, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
+    $stmt = $conn->prepare("INSERT INTO registration (electionType,electionId,rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssssss", $electionType,$id, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
 
     $electionType = $_POST['electiontype'];
+    $id=$_POST['electionid'];
     $name = $_POST['name'];
     $nic = $_POST['nic'];
     $gender = $_POST['gender'];
@@ -87,6 +88,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="parliamentary_Election">Parliamentary Election</option>
                             <option value="Local_Government_Elections">Local Government Elections</option>
                     </select>
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="pb-2 pr-2">
+                        <label for="id" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Election ID:</label>
+                    </td>
+                    <td class="pb-2">
+                        <input type="text" name="electionid" id="electionid" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter Election ID">
                     </td>
                 </tr>
                 <tr>
