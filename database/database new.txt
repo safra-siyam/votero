@@ -46,6 +46,8 @@ GramaNiladari_Division varchar(30) not null,
 Registered_Date date not null,
 Voter_NIC varchar(12) unique not null,
 Election_ID varchar(5) not null,
+CheifOccupant_NIC varchar(12) not null,
+CheifOccupantRelationship varchar(50) not null,
 foreign key(Voter_NIC) references Voter(Voter_NIC),
 foreign key(Election_ID) references Election(Election_ID),
 primary key(Voter_NIC,Election_ID)
