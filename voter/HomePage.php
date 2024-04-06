@@ -145,6 +145,18 @@
                 <a href="Instruction.php" class="text-blue-500 hover:underline">View  &rarr;</a>
             </div>
         </div>
+
+        <div class="card flex items-center">
+    <div class="mr-4">
+        <i class="fas fa-bell text-blue-500 text-3xl"></i>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-2">View Messages</h3>
+        <p class="mb-4">Access your inbox to view received messages.</p>
+        <a href="notification.html" class="text-blue-500 hover:underline">View Notifications &rarr;</a>
+    </div>
+</div>
+
         
     </div>
 </div>

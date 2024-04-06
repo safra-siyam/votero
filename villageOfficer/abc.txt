@@ -1,0 +1,113 @@
+<?php
+    include('../include/connect.php');
+
+    if(isset($_GET['id'])) {
+        $id = intval($_GET['id']);
+
+        $sql = mysqli_query($con, "UPDATE registration SET elegibility_status = 'Eligible' WHERE rId = $id");
+
+        if($sql) {
+            // header('location:ManageVoters.php');
+            // exit; // Add exit to prevent further execution
+        } else {
+            echo "Error: " . mysqli_error($con);
+
+
+        }
+
+        // to get the email id from the voter table
+
+        $sqlRead = mysqli_query($con,"SELECT voter.Email from voter inner join registration on registration.rNIC = Voter.Voter_NIC where registration.rId = '$id'");
+            
+        if ($sqlRead->num_rows > 0) {
+        $row = $sqlRead->fetch_assoc();
+            $to_email = $row["Email"];
+            
+        } 
+
+        // to get the nic as per the user
+        $sqlRead1 = mysqli_query($con,"SELECT rNIC from registration where rId = '$id'");
+        if ($sqlRead1->num_rows > 0) {
+            $row = $sqlRead->fetch_assoc();
+            $nic = $row["rNIC"];
+
+            } 
+
+
+            echo '<script>sendEmailAndConfirm($to_email, $nic);</script>';
+
+
+
+
+        header('location:ManageVoters.php');
+    } 
+
+    else if(isset($_GET['delete'])) {
+        $id = intval($_GET['delete']);
+
+        $sql = mysqli_query($con, "UPDATE registration SET elegibility_status = 'Ineligible' WHERE rId = $id");
+
+        if($sql) {
+            header('location:ManageVoters.php');
+            exit; // Add exit to prevent further execution
+        } else {
+            echo "Error: " . mysqli_error($con);
+        }
+    } 
+
+    else {
+        echo "Error: ID parameter not provided.";
+    }
+    ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init({
+                    publicKey: "BgKfwxjugL1QudMPM",
+                });
+            })();
+        </script>
+
+
+        <script>
+            function sendEmailAndConfirm(to_email,id) {
+                // Send email using EmailJS
+                sendEmail(to_email,id);
+
+                // Submit form using AJAX
+                submitConfirmation(id);
+            }
+
+            function sendEmail(to_email,id) {
+                console.log(to_email);
+                emailjs.send("service_uso300a","template_cxd02t7",{
+                    to_name: "fh",
+                    message: "Eligible",
+                    to_email: to_email,
+                    id: id,
+                    })
+                    .then(function(response) {
+                        console.log('Email sent successfully:', response);
+                        alert('Email sent successfully!');
+                    }, function(error) {
+                        console.error('Email sending failed:', error);
+                        alert('Email sending failed. Please try again later.');
+                  });
+
+            }
+</head>
+<body>
+    
+</body>
+</html>

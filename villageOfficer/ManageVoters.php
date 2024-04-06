@@ -112,18 +112,42 @@ else{
     <?php
     // Establish connection to your database
     $servername = "localhost";
-    $username = "root";
+    $usernames = "root";
     $password = "";
     $dbname = "votero";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $usernames, $password, $dbname);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
     // Fetch data from the registration table
-    $sql = "SELECT * FROM registration";
+    // $sql = "SELECT * FROM registration";
+    include_once('../include/connect.php');
+    $sqlRead = mysqli_query($con,"select Division from villageofficer where VillageOfficer_Username = '$username'");
+		$columnValue = '';
+    if ($sqlRead->num_rows > 0) {
+        $row = $sqlRead->fetch_assoc();
+        $columnValue = $row["Division"];
+        //$_SESSION['msg']=" $columnValue  Dispensary is Approved !!";
+     
+      } 
+
+    $sqlRead = mysqli_query($con,"select Division from villageofficer where VillageOfficer_Username = '$username'");
+		$columnValue = '';
+    if ($sqlRead->num_rows > 0) {
+        $row = $sqlRead->fetch_assoc();
+        $columnValue = $row["Division"];
+        //$_SESSION['msg']=" $columnValue  Dispensary is Approved !!";
+     
+      } 
+
+    
+    $sql = "SELECT registration.* from registration INNER join villageofficer on registration.rGramaNiladhariDivision = villageofficer.Division where villageofficer.Division = '$columnValue' ";
+
+
+    
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

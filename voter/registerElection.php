@@ -14,7 +14,10 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("INSERT INTO registration (electionType,electionId,rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssssss", $electionType,$id, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
+    // $stmt->bind_param("sssssssssss", $electionType,$id, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
+
+    $stmt->bind_param("ssssssssssss", $electionType, $id, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
+
 
     $electionType = $_POST['electiontype'];
     $id=$_POST['electionid'];

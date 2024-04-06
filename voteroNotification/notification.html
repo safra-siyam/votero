@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Notifications</title>
+</head>
+
+<style>
+	.notify{
+		position:relative ;
+	}
+
+	.notify-btn{
+		margin-right: 100px;
+		margin-top: 300px;
+		float: right;
+	}
+
+	.notify-menu{
+		overflow: hidden;
+		box-shadow: 1px 1px 1px;
+		position: absolute;
+		width: 200px;
+		top: 140px;
+		right: 130px;
+		display: none;
+	}
+
+	.show{
+		display: block;
+	}
+
+	.notify-menu li{
+		padding: 1rem;
+		font-size: 1.1rem;
+		width: 100%;
+		list-style: none;
+	}
+
+	.notify-menu li:hover{
+		background-color: #ccc;
+		cursor: pointer;
+		color:white;
+	}
+
+	.icon-button{
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: 50px;
+		color:#333333;
+		background-color: #dddddd;
+		border: none;
+		outline: none;
+		border-radius: 50%;
+	}
+
+	.icon-button:hover{
+		cursor: pointer;
+	}
+
+	.icon-button:active{
+		background: #cccccc;
+	}
+
+
+    .icon-button_badge{
+    	position: absolute;
+    	top: -10px;
+    	right: -10px;
+    	width: 25px;
+    	height: 25px;
+    	background: red;
+    	color: #ffffff;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	border-radius: 50%;
+    }
+</style>
+
+
+<body>
+	<div class="notify">
+		<div class="notify-btn" id="notify-btn">
+
+			<button type="button" class="icon-button">
+				<span><img src="notifications.png" width="30" height="30"></span>
+				<span class="icon-button_badge" id="show_notif">0</span>
+			</button>
+		</div>
+
+		<div class="notify-menu" id="notify-menu">
+		</div>
+	</div>
+</body>
+</html>

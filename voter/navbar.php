@@ -100,7 +100,7 @@
           <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" style="color: #fff; font-size: 24px;" aria-expanded="false">
 
-            <?php    echo  $username;         ?>
+            <?php echo "Welcome to Voter dashboard : $username"; ?>
                         
               <span class=" fa fa-angle-down"></span>
             </a>

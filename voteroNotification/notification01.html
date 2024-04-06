@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Notifications</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votero - Voting and Elections</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .flex-grow {
+            flex-grow: 1;
+        }
+        main {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white font-bold text-xl">Votero</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white hover:underline"></a></li>
+                <li><a href="#" class="text-white hover:underline"></a></li>
+                <li><a href="login.php" class="text-white hover:underline">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+   
+
+   
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold mb-4">Send Notifications</h2>
+        <form name="frmAddElection" method="post" action="#">
+            <table class="w-full mb-6">
+                <tr>
+                    <td class="pb-2 pr-2 w-1/4">
+                        <label for="txtId" class="block text-gray-700 text-sm font-bold">Voter NIC:</label>
+                    </td>
+                    <td class="pb-2">
+                        <input type="text" name="txtId" id="txtId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Voter NIC">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pb-2 pr-2 w-1/4">
+                        <label for="txtmsg" class="block text-gray-700 text-sm font-bold">Message:</label>
+                    </td>
+                    <td class="pb-2">
+                        <input type="text" name="txtId" id="txtId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Message">
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" name="btnSend" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send Now</button>
+        </form>
+    </main>
+</body>
+</html>
+                

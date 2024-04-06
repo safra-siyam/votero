@@ -12,10 +12,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
     
-    $servername = "localhost:3308";
+    $servername = "localhost";
     $dbUsername = "root"; 
-    $dbPassword = "  ";
-    $dbname = "votero_db";
+    $dbPassword = '';
+    $dbname = "votero";
 
     $connection = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
 
@@ -75,17 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     </style>
 </head>
 <body class="bg-gray-100"">
-    <!-- Navbar -->
-    <!-- <nav class="bg-blue-500 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-white font-bold text-xl">Votero</h1>
-            <ul class="flex space-x-4">
-                <li><a href="#" class="text-white hover:underline"></a></li>
-                <li><a href="#" class="text-white hover:underline"></a></li>
-                <li><a href="login.php" class="text-white hover:underline">Logout</a></li>
-            </ul>
-        </div>
-    </nav> -->
+
 
     <?php include 'navbar.php'; ?>
 
