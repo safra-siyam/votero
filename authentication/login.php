@@ -83,6 +83,37 @@ try {
                     echo "Required fields missing.";
                 }
               }
+
+              else if ($type == "admin") {
+                $sql = "SELECT * FROM admin WHERE admin_nic = ? AND admin_userName = ? AND admin_password = ?";
+                $stmt = $conn->prepare($sql);
+                if ($stmt) {
+                    $stmt->bind_param("sss", $nic, $username, $password);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    
+                    if ($result->num_rows == 1) {
+                        // User found, you can proceed with login
+                        // For example, you can set session variables to keep the user logged in
+                        session_start();
+                        $_SESSION['user'] = $result->fetch_assoc();
+    
+                        // Redirect to a dashboard or profile page
+                        header("Location: ../admin/adminDashboard.html");
+                        // C:\wamp64\www\votero\admin\adminDashboard.html
+                        exit();
+                    } else {
+                        // User not found, display an error message or redirect back to the login page
+                        echo "Invalid credentials. Please try again.";
+                        // header("Location: ../admin/adminDashboard.html");
+
+                    }
+           
+                } 
+                else {
+                    echo "Required fields missing.";
+                }
+              }
     
     } 
    

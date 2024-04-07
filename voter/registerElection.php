@@ -1,26 +1,11 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "votero";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include_once('../include/connect.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $stmt = $conn->prepare("INSERT INTO registration (electionType,electionId,rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    // $stmt->bind_param("sssssssssss", $electionType,$id, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
-
-    $stmt->bind_param("ssssssssssss", $electionType, $id, $name, $nic, $gender, $dob, $chief_name, $chief_nic, $relationship, $home_id, $address, $grama_division, $registration_date);
-
 
     $electionType = $_POST['electiontype'];
-    $id=$_POST['electionid'];
+   // $id=$_POST['electionid'];
     $name = $_POST['name'];
     $nic = $_POST['nic'];
     $gender = $_POST['gender'];
@@ -32,15 +17,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'];
     $grama_division = $_POST['grama_division'];
     $registration_date = $_POST["date"]; 
-
-    if ($stmt->execute()) {
+    
+    
+    $query = mysqli_query($con, "INSERT INTO registration (electionType, rName, rNIC, rgender, rDateOfBirth, rChiefOccupantName, rChiefOccupantNIC, rChiefOccupantRelationship, rHome_id, rAddress, rGramaNiladhariDivision, rRegistrationDate,elegibility_status) 
+                            VALUES ('$electionType', '$name', '$nic', '$gender', '$dob', '$chief_name', '$chief_nic', '$relationship', '$home_id', '$address', '$grama_division', '$registration_date','Ineligible')");
+	if($query)
+	{
         echo "New record created successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+	}
+//     {
+   
+// <!-- 
+//         <script> window.location.href = 'ManageVoters.php';
+//     </script> -->
 
-    $stmt->close();
-    $conn->close();
+
+
+//     }
+ 
 }
 ?>
 
@@ -93,14 +87,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </select>
                     </td>
                 </tr>
-                 <tr>
+                 <!-- <tr>
                     <td class="pb-2 pr-2">
                         <label for="id" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Election ID:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="electionid" id="electionid" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter Election ID">
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td class="pb-2 pr-2">
                         <label for="name" class="block text-gray-700 text-sm font-bold"style="font-size: 16px;">Name:</label>
