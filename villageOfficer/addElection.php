@@ -4,7 +4,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     
     $id = isset($_POST['txtId']) ? $_POST['txtId'] : '';
-    $name = isset($_POST['txtName']) ? $_POST['txtName'] : '';
+    $name = isset($_POST['electiontype']) ? $_POST['electiontype'] : '';
     $date=isset($_POST['txtDate']) ?$_POST['txtDate'] : '';
     $division = isset($_POST['txtDivision']) ? $_POST['txtDivision'] : '';
     
@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         }
     </style>
 </head>
-<body class="bg-gray-100"">
+<body class="bg-gray-100">
 
 
     <?php include 'navbar.php'; ?>
@@ -96,12 +96,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                         <input type="text" name="txtId" id="txtId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Election ID">
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td class="pb-2 pr-2">
                         <label for="name" class="block text-gray-700 text-sm font-bold">Election Name:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="txtName" id="txtName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Election Name">
+                    </td>
+                </tr> -->
+                <tr>
+                    <td class="pb-2 pr-2">
+                        <!-- <label for="electiontype" class="block text-gray-700 text-sm font-bold">Election Type:</label>
+                     -->
+                     <label for="electiontype" class="block text-gray-700 text-sm font-bold">Election Type:</label>
+
+                    </td>
+                    <td class="pb-2 pr-2">
+                    <select name="electiontype" id="electiontype" required onchange="toggleForm()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="" disabled selected>Select Election</option>
+                            <option value="presidential_Election">Presidential Election</option>
+                            <option value="parliamentary_Election">Parliamentary Election</option>
+                            <option value="Local_Government_Elections">Local Government Elections</option>
+                    </select>
                     </td>
                 </tr>
 
@@ -114,14 +130,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     </td>
                 </tr>
                 
-                <tr>
+                <!-- <tr>
                     <td class="pb-2 pr-2">
                         <label for="txtDivision" class="block text-gray-700 text-sm font-bold">Division:</label>
                     </td>
                     <td class="pb-2">
                         <input type="text" name="txtDivision" id="txtDivision" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Division">
                     </td>
-                </tr>
+                </tr> -->
                
             </table>
             <button type="submit" name="btnAdd" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Now</button>

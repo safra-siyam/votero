@@ -212,13 +212,11 @@ if (isset($conn)) {
 
 
     <script>
-
-function voterValidate(){
+  function voterValidate(){
 			userAvailability();
 			userNameAvailability();
       nicAvailability();
 		}
-
 	function userAvailability() 
 	{
 		$("#loaderIcon").show();
@@ -234,7 +232,6 @@ function voterValidate(){
 			error:function (){}
 		});
 	}
-
   function nicAvailability() 
 	{
 		$("#loaderIcon").show();
@@ -266,7 +263,6 @@ function voterValidate(){
 			error:function (){}
 		});
 	}
-
 	</script>	
 
 

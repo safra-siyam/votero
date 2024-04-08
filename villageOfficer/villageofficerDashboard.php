@@ -60,7 +60,7 @@
                     <a href="ManageVoters.php" class="text-blue-500 hover:underline">Manage Voters &rarr;</a>
                 </div>
             </div>
-            <div class="card flex items-center">
+            <!-- <div class="card flex items-center">
                 <div class="mr-4">
                     <i class="fas fa-poll text-blue-500 text-3xl"></i>
                 </div>
@@ -69,7 +69,7 @@
                     <p class="mb-4">Create and conduct surveys in your village.</p>
                     <a href="#" class="text-blue-500 hover:underline">Conduct Surveys &rarr;</a>
                 </div>
-            </div>
+            </div> -->
             <div class="card flex items-center">
                 <div class="mr-4">
                     <i class="fas fa-file-alt text-blue-500 text-3xl"></i>

@@ -15,12 +15,10 @@
                 publicKey: "ksA7gbXtFyQmSOK7u",
             });
         })();
-
         function sendEmailAndConfirm(to_email,id,elStatus,uName) {
             sendEmail(to_email,id,elStatus,uName);
             // You can add additional functionality here if needed
         }
-
         function sendEmail(to_email,id,elStatus,uName) {
             console.log('Sending email to:', to_email);
             emailjs.send("service_3lzb6jn","template_kst6e8d",{
