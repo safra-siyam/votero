@@ -172,8 +172,8 @@ if (isset($conn)) {
     <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type:</label>
     <select name="type" id="type" required onchange="toggleForm()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
       <option value="" disabled selected>Select type</option>
-      <option value="admin">Admin</option>
-      <option value="village_officer">Village Officer</option>
+      <!-- <option value="admin">Admin</option>
+      <option value="village_officer">Village Officer</option> -->
       <option value="voter">Voter</option>
     </select>
   </div>
@@ -448,7 +448,7 @@ function VONicAvailability()
     villageOfficerForm.classList.remove("visible-form");
   }
 }
-</script>
+</script> 
 
 
 		<script src="vendor/jquery/jquery.min.js"></script>
