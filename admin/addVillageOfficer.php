@@ -147,6 +147,60 @@ if (isset($conn)) {
     </div>
     <button type="submit" id = "voSubmitButton" name = "voSubmitButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" >Register</button>
     </form>
+    <script>
+
+  function voValidate(){
+    VOEmailAvailability();
+    VONicAvailability();
+    VOUNAvailability();
+  }
+function VONicAvailability() 
+	{
+		$("#loaderIcon").show();
+		jQuery.ajax
+		({
+			url: "check_availabilityVO.php",
+			data:'nicVO='+$("#nicVO").val(),
+			type: "POST",
+			success:function(data){
+			$("#user-availability-statusVONIC").html(data);
+			$("#loaderIcon").hide();
+			},
+			error:function (){}
+		});
+	}
+  function VOEmailAvailability() 
+	{
+		$("#loaderIcon").show();
+		jQuery.ajax
+		({
+			url: "check_availabilityVO.php",
+			data:'emailVO='+$("#emailVO").val(),
+			type: "POST",
+			success:function(data){
+			$("#user-availability-statusVOEmail").html(data);
+			$("#loaderIcon").hide();
+			},
+			error:function (){}
+		});
+	}
+
+  function VOUNAvailability() 
+	{
+		$("#loaderIcon").show();
+		jQuery.ajax
+		({
+			url: "check_availabilityVO.php",
+			data:'usernameVO='+$("#usernameVO").val(),
+			type: "POST",
+			success:function(data){
+			$("#user-availability-statusVOUN").html(data);
+			$("#loaderIcon").hide();
+			},
+			error:function (){}
+		});
+	}
+</script>
   </div>
 </div>
 
