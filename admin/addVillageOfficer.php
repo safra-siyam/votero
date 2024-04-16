@@ -37,9 +37,10 @@ try {
         $VOgender = sanitize_input($_POST["gender"]);
         $VOphone = sanitize_input($_POST["contactnumber"]);
         $VOaddress = sanitize_input($_POST["address"]);
-        $adminId = 01;       
-        $query=mysqli_query($conn,"INSERT INTO villageofficer (VillageOfficer_NIC, VillageOfficer_Name, Email, Division, VillageOfficer_Username, VillageOfficer_Password,Date_of_Birth,Gender,Contact_Number,Address) 
-        values('$VOnic', '$VOname', '$VOemail', '$VOdivision', '$VOusername', '$VOpassword','$VOdob','$VOgender','$VOphone','$VOaddress')");
+        $adminId = 01;     
+        $st = "Pending";  
+        $query=mysqli_query($conn,"INSERT INTO villageofficer (VillageOfficer_NIC, VillageOfficer_Name, Email, Division, VillageOfficer_Username, VillageOfficer_Password,Date_of_Birth,Gender,Contact_Number,Address,status) 
+        values('$VOnic', '$VOname', '$VOemail', '$VOdivision', '$VOusername', '$VOpassword','$VOdob','$VOgender','$VOphone','$VOaddress','$st')");
         if($query)
         {
             echo "Record inserted";

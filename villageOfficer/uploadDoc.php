@@ -58,8 +58,13 @@
 </head>
 <body>
     <h1>Upload Village Officer Document</h1>
+<<<<<<< HEAD
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="officerDocument" accept="application/pdf" required>
+=======
     <form id="uploadForm" enctype="multipart/form-data">
         <input type="file" id="officerDocument" accept="application/pdf" required>
+>>>>>>> 97b4e2eefeefbf477caa18b905abe6993816aadd
         <button type="submit">Upload Document</button>
     </form>
 
