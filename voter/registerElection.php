@@ -25,15 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	{
         echo "New record created successfully";
 	}
-//     {
-   
-// <!-- 
-//         <script> window.location.href = 'ManageVoters.php';
-//     </script> -->
-
-
-
-//     }
  
 }
 ?>
@@ -231,10 +222,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="HomePage.php" class="text-blue-500 hover:underline">Go Back to Dashboard</a>
     </div>
 
-    <footer class="bg-gray-900 text-white py-4">
+    <?php include '../include/footer.php'; ?>
+    <!-- <footer class="bg-gray-900 text-white py-4">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 Votero. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>

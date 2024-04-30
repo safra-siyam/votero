@@ -47,16 +47,14 @@ try {
                         header("Location: ../voter/HomePage.php");
                         exit();
                     } else {
-                        // User not found, display an error message or redirect back to the login page
-                        echo "Invalid credentials. Please try again.";
+                        // User not found, display an error message
+                        echo "<script>alert('Invalid credentials. Please try again.');</script>";
                     }
-            
-            
-            
-            
-              }           
-              }
-              else if ($type == "village_officer") {
+                } else {
+                    echo "<script>alert('Error occurred. Please try again.');</script>";
+                }
+            }
+            else if ($type == "village_officer") {
                 $sql = "SELECT * FROM VillageOfficer WHERE villageOfficer_NIC = ? AND VillageOfficer_Username = ? AND VillageOfficer_Password = ?";
                 $stmt = $conn->prepare($sql);
                 if ($stmt) {
@@ -74,17 +72,15 @@ try {
                         header("Location: ../villageOfficer/villageofficerDashboard.php");
                         exit();
                     } else {
-                        // User not found, display an error message or redirect back to the login page
-                        echo "Invalid credentials. Please try again.";
+                        // User not found, display an error message
+                        echo "<script>alert('Invalid credentials. Please try again.');</script>";
                     }
-           
-                } 
-                else {
-                    echo "Required fields missing.";
+                } else {
+                    echo "<script>alert('Error occurred. Please try again.');</script>";
                 }
-              }
+            }
 
-              else if ($type == "admin") {
+            else if ($type == "admin") {
                 $sql = "SELECT * FROM admin WHERE admin_nic = ? AND admin_userName = ? AND admin_password = ?";
                 $stmt = $conn->prepare($sql);
                 if ($stmt) {
@@ -103,24 +99,18 @@ try {
                         // C:\wamp64\www\votero\admin\adminDashboard.html
                         exit();
                     } else {
-                        // User not found, display an error message or redirect back to the login page
-                        echo "Invalid credentials. Please try again.";
-                        // header("Location: ../admin/adminDashboard.html");
-
+                        // User not found, display an error message
+                        echo "<script>alert('Invalid credentials. Please try again.');</script>";
                     }
-           
-                } 
-                else {
-                    echo "Required fields missing.";
+                } else {
+                    echo "<script>alert('Error occurred. Please try again.');</script>";
                 }
-              }
-    
-    } 
-   
-  }
+            }
+        }
+    }
 }
 catch (Exception $e) {
-    echo "error|" . $e->getMessage(); // Return error message
+    echo "<script>alert('An error occurred: " . $e->getMessage() . "');</script>"; // Return error message as a popup
 }
 
 if (isset($conn)) {
