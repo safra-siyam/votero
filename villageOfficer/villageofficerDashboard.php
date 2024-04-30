@@ -47,9 +47,20 @@
     <?php include 'navbar.php'; ?>
 
     <!-- Main Content Section -->
-    <div class="main-content">
+        <div class="main-content">
         
-        <div>
+            <div>
+            <div class="card flex items-center">
+              <div class="mr-4">
+                  <i class="fas fa-file-upload text-blue-500 text-3xl"></i>
+              </div>
+             <div>
+            <h3 class="text-xl font-semibold mb-2">Upload Document</h3>
+            <p class="mb-4">Upload your document to prove.</p>
+             <a href="uploadDoc.php" class="text-blue-500 hover:underline">Upload &rarr;</a>
+             </div>
+            </div> 
+
             <div class="card flex items-center">
                 <div class="mr-4">
                     <i class="fas fa-users text-blue-500 text-3xl"></i>
@@ -60,16 +71,7 @@
                     <a href="ManageVoters.php" class="text-blue-500 hover:underline">Manage Voters &rarr;</a>
                 </div>
             </div>
-            <!-- <div class="card flex items-center">
-                <div class="mr-4">
-                    <i class="fas fa-poll text-blue-500 text-3xl"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Conduct Surveys</h3>
-                    <p class="mb-4">Create and conduct surveys in your village.</p>
-                    <a href="#" class="text-blue-500 hover:underline">Conduct Surveys &rarr;</a>
-                </div>
-            </div> -->
+
             <div class="card flex items-center">
                 <div class="mr-4">
                     <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
