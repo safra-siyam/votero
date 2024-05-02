@@ -55,9 +55,12 @@
                   <i class="fas fa-file-upload text-blue-500 text-3xl"></i>
               </div>
              <div>
-            <h3 class="text-xl font-semibold mb-2">Upload Document</h3>
-            <p class="mb-4">Upload your document to prove.</p>
-             <a href="uploadDoc.php" class="text-blue-500 hover:underline">Upload &rarr;</a>
+            <h3 class="text-xl font-semibold mb-2">Edit Profile</h3>
+            <p class="mb-4">Edit your profile</p>
+             <a href="updateprofile.php" class="text-blue-500 hover:underline">Edit &rarr;</a>
+             |
+             <a href="uploadDoc.php" class="text-blue-500 hover:underline">Update Document &rarr;</a>
+
              </div>
             </div> 
 

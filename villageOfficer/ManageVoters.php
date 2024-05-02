@@ -91,9 +91,79 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Voters</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <style>
+        .custom-table th,
+        .custom-table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .custom-table thead th {
+            background-color: #f3f4f6;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #e5e7eb;
+        }
+    </style> -->
+
     <style>
         /* Additional custom styles can be added here */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            display: block;
+            overflow-y: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #edf2f7;
+            color: #4a5568;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: #fff;
+            color: #4a5568;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .action-buttons a {
+            margin: 0 5px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-buttons a:hover {
+            background-color: #cbd5e0;
+        }
     </style>
+    
 </head>
 <body class="bg-gray-100">
 <?php include 'navbar.php'; ?>
@@ -228,16 +298,6 @@ else{
         });
     });
 </script>
-<!-- <script>
-    $(document).ready(function(){
-        // Toggle eligibility when button is clicked
-        $('.toggle-eligible').click(function() {
-            var id = $(this).data('id');
-            var eligibility = $(this).text().trim();
-            var newEligibility = (eligibility === 'Eligible') ? 'Not Eligible' : 'Eligible';
-            $(this).text(newEligibility);
-        });
-    });
-</script> -->
 </body>
 </html>
+

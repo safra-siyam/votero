@@ -6,6 +6,7 @@
                       session_start(); // Start the session
                        if (isset($_SESSION['user']['VillageOfficer_Username'])) {
                            $username = $_SESSION['user']['VillageOfficer_Username'];
+                           $un = $username;
                            //echo "Welcome ";
                        }
                         else {

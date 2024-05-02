@@ -55,7 +55,7 @@ try {
                 }
             }
             else if ($type == "village_officer") {
-                $sql = "SELECT * FROM VillageOfficer WHERE villageOfficer_NIC = ? AND VillageOfficer_Username = ? AND VillageOfficer_Password = ?";
+                $sql = "SELECT * FROM villageOfficer WHERE villageOfficer_NIC = ? AND VillageOfficer_Username = ? AND VillageOfficer_Password = ?";
                 $stmt = $conn->prepare($sql);
                 if ($stmt) {
                     $stmt->bind_param("sss", $nic, $username, $password);
@@ -81,7 +81,7 @@ try {
             }
 
             else if ($type == "admin") {
-                $sql = "SELECT * FROM admin WHERE admin_nic = ? AND admin_userName = ? AND admin_password = ?";
+                $sql = "SELECT * FROM admin WHERE Admin_ID = ? AND Admin_Username = ? AND Admin_Password = ?";
                 $stmt = $conn->prepare($sql);
                 if ($stmt) {
                     $stmt->bind_param("sss", $nic, $username, $password);

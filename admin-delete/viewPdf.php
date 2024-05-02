@@ -19,7 +19,6 @@
     <h1>View Documents</h1>
 
     <?php
-
     // Include database connection
     include_once "../include/connect.php"; // Assuming this file contains your database connection code
 
