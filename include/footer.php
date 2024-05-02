@@ -15,7 +15,6 @@
             padding-top: 2rem;
             padding-bottom: 2rem;
             /* position: fixed; */
-            position: fixed;
 
             bottom: 0;
             left: 0;

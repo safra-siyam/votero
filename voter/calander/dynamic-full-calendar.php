@@ -157,6 +157,10 @@
 
 <!-- End popup dialog box -->
 
+<<<<<<< HEAD
+<?php include '../../include/footer.php'; ?>
+=======
+>>>>>>> 97b4e2eefeefbf477caa18b905abe6993816aadd
 
 
 
