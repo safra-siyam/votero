@@ -3,8 +3,8 @@ With Votero, the citizens can now register for the election from the comfort of 
 eliminating the need for long queues and paperwork.
 The process is quiet simple as,
 Once a citizen completes their registration, the next step involves approval from the village officer 
-of their respective area. The village officer is given with a unique username-e and password, logs 
-into the Votero system to review and approv-e registrations for the election.
+of their respective area. The village officer is given with a unique username and password, logs 
+into the Votero system to review and approve registrations for the election.
 Every Voter who is registered gets qualified to cast their vote for the upcoming election which can 
 be Presidential Elections, Parliamentary Elections, Provincial Councils Elections and Local 
 Authorities Elections. 
