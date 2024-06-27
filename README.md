@@ -1,6 +1,7 @@
 Votero which is designed to simplify the process of registering for the upcoming election digitally. 
-With Votero, citizens can now register for the election from the comfort of their own homes, 
+With Votero, the citizens can now register for the election from the comfort of their own homes, 
 eliminating the need for long queues and paperwork.
+The process is quiet simple as,
 Once a citizen completes their registration, the next step involves approval from the village officer 
 of their respective area. The village officer is given with a unique username-e and password, logs 
 into the Votero system to review and approv-e registrations for the election.
